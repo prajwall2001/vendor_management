@@ -36,6 +36,10 @@
             border: 1px solid #ccc;
             box-sizing: border-box;
         }
+        li{
+            color:rgb(0, 0, 0);
+        }
+      
         .btn {
             padding: 10px 20px;
             border-radius: 5px;
@@ -79,56 +83,57 @@
 <c:forEach var="objectErrors" items="${errors}"> ${objectErrors.defaultMessage}<br></c:forEach>
 </span>
   <h1 style='color:Green'>${msg}</h1>
+  <h1 style='color:red'>${uniqueError}</h1>
 <form action="vendorM" class="container" method="post">
-<h1>Registration Form</h1>
+<h1 style='text-align:center'>Registration Form</h1>
     <div class="design">
         <label for="name">Name</label><br>
-        <input type="text" name="name" id="name" placeholder="Enter name" value="${dto.name}">
+        <input type="text" name="name" id="name" placeholder="Enter name" value="${entity.name}">
     </div><br>
     <div class="design">
         <label for="location">Location</label><br>
-        <input type="text" name="location" id="location" placeholder="Enter location" value="${dto.location}">
+        <input type="text" name="location" id="location" placeholder="Enter location" value="${entity.location}">
     </div><br>
     <div class="design">
         <label for="gstNo">GST Number</label><br>
-        <input type="text" name="gstNo" id="gstNo" placeholder="Enter GST number" value="${dto.gstNo}">
+        <input type="text" name="gstNo" id="gstNo" placeholder="Enter GST number" value="${entity.gstNo}">
     </div><br>
     <div class="design">
         <label for="companyStartDate">Company Start Date</label><br>
-        <input type="date" name="companyStartDate" id="companyStartDate" placeholder="Select start date" value="${dto.companyStartDate}">
+        <input type="date" name="companyStartDate" id="companyStartDate" placeholder="Select start date" value="${entity.companyStartDate}">
     </div><br>
     <div class="design">
         <label for="ownerName">Owner Name</label><br>
-        <input type="text" name="ownerName" id="ownerName" placeholder="Enter owner name" value="${dto.ownerName}">
+        <input type="text" name="ownerName" id="ownerName" placeholder="Enter owner name" value="${entity.ownerName}">
     </div><br>
     <div class="form-group">
     <label for="serviceType">Service Type</label>
     <select class="form-control" id="serviceType" name="serviceType">
         <option selected value=" ">Select service type</option>
-        <option value="water" <c:if test="${dto.serviceType=='water'}">selected="selected"</c:if>>Water</option>
-        <option value="milk" <c:if test="${dto.serviceType=='milk'}">selected="selected"</c:if>>Milk</option>
-        <option value="coffee" <c:if test="${dto.serviceType=='coffee'}">selected="selected"</c:if>>Coffee</option>
-        <option value="laptop" <c:if test="${dto.serviceType=='laptop'}">selected="selected"</c:if>>Laptop</option>
-        <option value="internet" <c:if test="${dto.serviceType=='internet'}">selected="selected"</c:if>>Internet</option>
-        <option value="food" <c:if test="${dto.serviceType=='food'}">selected="selected"</c:if>>Food</option>
+        <option value="water" <c:if test="${entity.serviceType=='water'}">selected="selected"</c:if>>Water</option>
+        <option value="milk" <c:if test="${entity.serviceType=='milk'}">selected="selected"</c:if>>Milk</option>
+        <option value="coffee" <c:if test="${entity.serviceType=='coffee'}">selected="selected"</c:if>>Coffee</option>
+        <option value="laptop" <c:if test="${entity.serviceType=='laptop'}">selected="selected"</c:if>>Laptop</option>
+        <option value="internet" <c:if test="${entity.serviceType=='internet'}">selected="selected"</c:if>>Internet</option>
+        <option value="food" <c:if test="${entity.serviceType=='food'}">selected="selected"</c:if>>Food</option>
     </select>
 </div><br>
 
     <div class="design">
         <label for="contactNo">Contact Number</label><br>
-        <input type="number" name="contactNo" id="contactNo" placeholder="Enter contact number" value="${dto.contactNo}">
+        <input type="number" name="contactNo" id="contactNo" placeholder="Enter contact number" value="${entity.contactNo}">
     </div><br>
     <div class="design">
         <label for="alternativeNo">Alternative Contact Number</label><br>
-        <input type="tel" name="alternativeNo" id="alternativeNo" placeholder="Enter alternative contact number" value="${dto.alternativeNo}">
+        <input type="tel" name="alternativeNo" id="alternativeNo" placeholder="Enter alternative contact number" value="${entity.alternativeNo}">
     </div><br>
     <div class="design">
         <label for="email">Email</label><br>
-        <input type="email" name="email" id="email" placeholder="Enter email" value="${dto.email}">
+        <input type="email" name="email" id="email" placeholder="Enter email" value="${entity.email}">
     </div><br>
     <div class="design">
         <label for="website">Website</label><br>
-        <input type="url" name="website" id="website" placeholder="Enter website" value="${dto.website}">
+        <input type="url" name="website" id="website" placeholder="Enter website" value="${entity.website}">
     </div><br>
     <div class="design">
         <button type="submit" class="btn btn-success" value="send">Send</button>

@@ -11,6 +11,22 @@
 body{
 background-color:rgb(157, 157, 157) ;
 }
+  footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+        }
+
+        .social img {
+            height: 23px;
+            width: 23px;
+            margin: 5px;
+        }
 </Style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,4 +53,8 @@ background-color:rgb(157, 157, 157) ;
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
+ <footer>
+    <span>&copy; 2024 Vendor Management Project</span><br>
+</footer>
+
 </html>

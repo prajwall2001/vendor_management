@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -18,10 +19,12 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="vendor_registration")
-public class VendorDTO {
+@NamedQuery(name="isExistNameEmailWebsite" ,query="Select ent from VendorEntity as ent where ent.name=:vn  or ent.email=:vm or ent.website=:web")
+public class VendorEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="v_id")
 	private int id;
 	@NotNull
 	@Size(min=3,max=30,message="Name must be between 3-30 characters")
