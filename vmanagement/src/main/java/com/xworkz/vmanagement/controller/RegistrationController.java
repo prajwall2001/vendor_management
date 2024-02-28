@@ -40,7 +40,7 @@ public class RegistrationController {
 		} else {
 			// dto.setCreatedBy=ddto.getOwneranme;
 
-			String uniqueError = service.isExistByNameEmailWebsite(entity.getName(), entity.getEmail(), entity.getWebsite());
+			String uniqueError = service.isExistByGstNoContactNoEmailWebsite(entity.getGstNo(),entity.getContactNo(), entity.getEmail(), entity.getWebsite());
 			if (uniqueError != null) {
 				model.addAttribute("uniqueError", uniqueError);
 				return "registration";
@@ -49,6 +49,7 @@ public class RegistrationController {
 
 			}
 			this.service.validateAndSave(entity);
+			this.service.sendEmail(entity.getEmail());
 			return "registration";
 		}
 

@@ -7,16 +7,21 @@
 <meta charset="ISO-8859-1">
 <title>Vendor management</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<Style>
-body{
-background-color:rgb(157, 157, 157) ;
-}
+<style>
+     body {
+        font-family: Arial, sans-serif;
+        background-color: black; 
+        color:white;
+        background-image: url('vm_bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;  
+    }
   footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: black;
+  background-color: rgb(42, 40, 40);
   color: white;
   text-align: center;
   padding: 10px;
@@ -26,6 +31,9 @@ background-color:rgb(157, 157, 157) ;
             height: 23px;
             width: 23px;
             margin: 5px;
+        }
+        h4{
+        color:rgb(195, 195, 195);
         }
 </Style>
 
@@ -46,7 +54,7 @@ background-color:rgb(157, 157, 157) ;
 </nav>
 </head>
 <body>
-<h1 style="color:red">Vendor Management</h1>
+<h1 style="color:rgb(135, 0, 0); text-align: center; ">Vendor Management</h1>
 <h4>A vendor management project using Java and Spring is a web application designed to streamline the process of managing vendor relationships within an organization. It includes features such as storing vendor details, tracking contracts, evaluating performance, facilitating communication, and generating reports.</h4>
 <form action="info" method="post">
 </form>

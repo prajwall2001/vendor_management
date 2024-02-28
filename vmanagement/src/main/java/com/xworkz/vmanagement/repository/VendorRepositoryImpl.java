@@ -1,5 +1,7 @@
 package com.xworkz.vmanagement.repository;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -48,14 +50,14 @@ public class VendorRepositoryImpl implements VendorRepository {
 	}
 
 	@Override
-	public VendorEntity isExist(String name, String email, String website) {
-
+	public VendorEntity isExist(String gstNo, Long contactNo, String email, String website) {
 		EntityManager em = emf.createEntityManager();
 		System.out.println("Created EM");
 		VendorEntity entity = null;
 		try {
 			Query query = em.createNamedQuery("isExistNameEmailWebsite");
-			query.setParameter("vn", name);
+			query.setParameter("gn", gstNo);
+			query.setParameter("cn", contactNo);
 			query.setParameter("vm", email);
 			query.setParameter("web", website);
 			entity = (VendorEntity) query.getSingleResult();
@@ -69,5 +71,122 @@ public class VendorRepositoryImpl implements VendorRepository {
 			System.out.println("Em closed");
 		}
 		return entity;
+	}
+
+
+
+	@Override
+	public List<String> findAllByGstNo(String gstNo) {
+		EntityManager em = emf.createEntityManager();
+		System.out.println("Created EM");
+		List<String> list = new ArrayList<String>();
+
+		try {
+			Query query = em.createNamedQuery("findAllByGstNo");
+
+			list = query.getResultList();
+			
+
+		} catch (PersistenceException pe) {
+			System.out.println("PersistenceException in save:" + pe.getMessage());
+
+		} finally {
+			System.out.println("Closing resources");
+			em.close();
+			System.out.println("Em closed");
+		}
+		return list;
+	}
+	
+	
+	@Override
+	public List<String> findAllByContactNo(Long contactNo) {
+		EntityManager em = emf.createEntityManager();
+		System.out.println("Created EM");
+		List<String> lists = new ArrayList<String>();
+
+		try {
+			Query query = em.createNamedQuery("findAllByContactNo");
+
+			lists = query.getResultList();
+			System.out.println(lists);
+
+		} catch (PersistenceException pe) {
+			System.out.println("PersistenceException in save:" + pe.getMessage());
+
+		} finally {
+			System.out.println("Closing resources");
+			em.close();
+			System.out.println("Em closed");
+		}
+		return lists;
+	}
+	
+	
+	@Override
+	public List<String> findAllByAlternativeNo(Long alternativeNo) {
+		EntityManager em = emf.createEntityManager();
+		System.out.println("Created EM");
+		List<String> lists = new ArrayList<String>();
+
+		try {
+			Query query = em.createNamedQuery("findAllByAlternativeNo");
+
+			lists = query.getResultList();
+			System.out.println(lists);
+
+		} catch (PersistenceException pe) {
+			System.out.println("PersistenceException in save:" + pe.getMessage());
+
+		} finally {
+			System.out.println("Closing resources");
+			em.close();
+			System.out.println("Em closed");
+		}
+		return lists;
+	}
+	@Override
+	public List<String> findAllByEmail(String email) {
+		EntityManager em = emf.createEntityManager();
+		System.out.println("Created EM");
+		List<String> list = new ArrayList<String>();
+
+		try {
+			Query query = em.createNamedQuery("findAllByEmail");
+
+			list = query.getResultList();
+			
+
+		} catch (PersistenceException pe) {
+			System.out.println("PersistenceException in save:" + pe.getMessage());
+
+		} finally {
+			System.out.println("Closing resources");
+			em.close();
+			System.out.println("Em closed");
+		}
+		return list;
+	}
+	@Override
+	public List<String> findAllByWebsite(String website) {
+		EntityManager em = emf.createEntityManager();
+		System.out.println("Created EM");
+		List<String> list = new ArrayList<String>();
+
+		try {
+			Query query = em.createNamedQuery("findAllByWebsite");
+
+			list = query.getResultList();
+			
+
+		} catch (PersistenceException pe) {
+			System.out.println("PersistenceException in save:" + pe.getMessage());
+
+		} finally {
+			System.out.println("Closing resources");
+			em.close();
+			System.out.println("Em closed");
+		}
+		return list;
 	}
 }

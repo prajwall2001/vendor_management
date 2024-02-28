@@ -15,7 +15,7 @@ public class SpringWebInit extends AbstractAnnotationConfigDispatcherServletInit
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		System.out.println("Invoking getServletConfigClasses");
-		return new Class[] {BeanConfiguration.class};
+		return new Class[] { BeanConfiguration.class };
 	}
 
 	@Override

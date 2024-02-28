@@ -22,10 +22,11 @@ public class BeanConfiguration {
 		ViewResolver resolver = new InternalResourceViewResolver("/", ".jsp");
 		return resolver;
 	}
+
 	@Bean
 	public LocalContainerEntityManagerFactoryBean getEntityManagerFactoryBean() {
 		return new LocalContainerEntityManagerFactoryBean();
-		
+
 	}
-  
+
 }
