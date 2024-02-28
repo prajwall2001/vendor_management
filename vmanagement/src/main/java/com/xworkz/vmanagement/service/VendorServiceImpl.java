@@ -120,18 +120,16 @@ public class VendorServiceImpl implements VendorService {
 			}
 		}
 
-		System.out.println("GstNo doesn't exist, you can use it.");
-		return "GstNo doesn't exist, you can use it.";
-
+		return null;
 	}
 
 
 	@Override
 	public String findByContactNo(Long contactNo) {
 
-		List<String> byContactNo = this.repo.findAllByContactNo(contactNo);
+		List<Long> byContactNo = this.repo.findAllByContactNo(contactNo);
 		System.err.println(byContactNo);
-		for (String contact : byContactNo) {
+		for (Long contact : byContactNo) {
 			System.out.println(contact + " checking for " + contactNo);
 
 			if (contact.equals(contactNo)) {
@@ -140,16 +138,14 @@ public class VendorServiceImpl implements VendorService {
 			}
 		}
 
-		System.out.println("ContactNo doesn't exist, you can use it.");
-		return "ContactNo doesn't exist, you can use it.";
-
+		return null;
 	}
 
 	@Override
 	public String findByAlternativeNo(Long alternativeNo) {
-		List<String> byAlternativeNo = this.repo.findAllByAlternativeNo(alternativeNo);
+		List<Long> byAlternativeNo = this.repo.findAllByAlternativeNo(alternativeNo);
 		System.err.println(byAlternativeNo);
-		for (String altContact : byAlternativeNo) {
+		for (Long altContact : byAlternativeNo) {
 			System.out.println(altContact + " checking for " + alternativeNo);
 
 			if (altContact.equals(alternativeNo)) {
@@ -158,8 +154,7 @@ public class VendorServiceImpl implements VendorService {
 			}
 		}
 
-		System.out.println("AlternativeNo doesn't exist, you can use it.");
-		return "AlternativeNo doesn't exist, you can use it.";
+		return null;
 
 	}
 
@@ -176,8 +171,7 @@ public class VendorServiceImpl implements VendorService {
 			}
 		}
 
-		System.out.println("Email doesn't exist, you can use it.");
-		return "Email doesn't exist, you can use it.";
+		return null;
 
 	}
 
@@ -194,8 +188,7 @@ public class VendorServiceImpl implements VendorService {
 			}
 		}
 
-		System.out.println("Website doesn't exist, you can use it.");
-		return "Website doesn't exist, you can use it.";
+		return null;
 
 	}
 }

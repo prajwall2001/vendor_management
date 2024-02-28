@@ -100,10 +100,10 @@ public class VendorRepositoryImpl implements VendorRepository {
 	
 	
 	@Override
-	public List<String> findAllByContactNo(Long contactNo) {
+	public List<Long> findAllByContactNo(Long contactNo) {
 		EntityManager em = emf.createEntityManager();
 		System.out.println("Created EM");
-		List<String> lists = new ArrayList<String>();
+		List<Long> lists = new ArrayList<Long>();
 
 		try {
 			Query query = em.createNamedQuery("findAllByContactNo");
@@ -124,10 +124,10 @@ public class VendorRepositoryImpl implements VendorRepository {
 	
 	
 	@Override
-	public List<String> findAllByAlternativeNo(Long alternativeNo) {
+	public List<Long> findAllByAlternativeNo(Long alternativeNo) {
 		EntityManager em = emf.createEntityManager();
 		System.out.println("Created EM");
-		List<String> lists = new ArrayList<String>();
+		List<Long> lists = new ArrayList<Long>();
 
 		try {
 			Query query = em.createNamedQuery("findAllByAlternativeNo");

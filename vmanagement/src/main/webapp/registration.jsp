@@ -13,7 +13,7 @@
     body {
         font-family: Arial, sans-serif;
         color: #fff; 
-        
+        background-image:url('./github_banner.png');
         background-color:black;
         background-size: cover;
         background-repeat: no-repeat;  
@@ -130,7 +130,7 @@
     </div><br>
     <div class="design">
         <label for="gstNo">GST Number</label><br>
-        <input type="text" name="gstNo" id="gstNo" placeholder="Enter GST number" value="${entity.gstNo} " onchange="uniqueGstNo()">
+        <input type="text" name="gstNo" id="gstNo" placeholder="Enter GST number" value="${entity.gstNo}" onchange="uniqueGstNo()">
         <span style='color:red;' id="gstNoExistMsg"></span>
     </div><br>
     <div class="design">

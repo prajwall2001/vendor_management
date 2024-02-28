@@ -11,9 +11,9 @@ public interface VendorRepository {
 	
 	List<String> findAllByGstNo(String gstNo);
 	
-	List<String> findAllByContactNo(Long contactNo);
+	List<Long> findAllByContactNo(Long contactNo);
 	
-	List<String> findAllByAlternativeNo(Long alternativeNo);
+	List<Long> findAllByAlternativeNo(Long alternativeNo);
 	
 	List<String> findAllByEmail(String email);
 	
