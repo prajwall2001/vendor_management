@@ -109,12 +109,12 @@ public class VendorServiceImpl implements VendorService {
 
 	@Override
 	public String findAllByGstNo(String gstNo) {
-		List<String> byGstNo = this.repo.findAllByGstNo(gstNo);
+		List<VendorEntity> byGstNo = this.repo.findAll();
 		System.err.println(byGstNo);
-		for (String gst : byGstNo) {
-			System.out.println(gst + " checking for " + gstNo);
+		for (VendorEntity dto : byGstNo) {
+			System.out.println(dto + " checking for " + gstNo);
 
-			if (gst.equalsIgnoreCase(gstNo)) {
+			if (dto.getGstNo().equalsIgnoreCase(gstNo)) {
 				System.out.println("checking for " + gstNo);
 				return "GstNo already exist.";
 			}
@@ -123,16 +123,15 @@ public class VendorServiceImpl implements VendorService {
 		return null;
 	}
 
-
 	@Override
 	public String findByContactNo(Long contactNo) {
 
-		List<Long> byContactNo = this.repo.findAllByContactNo(contactNo);
+		List<VendorEntity> byContactNo = this.repo.findAll();
 		System.err.println(byContactNo);
-		for (Long contact : byContactNo) {
-			System.out.println(contact + " checking for " + contactNo);
+		for (VendorEntity dto : byContactNo) {
+			System.out.println(dto + " checking for " + contactNo);
 
-			if (contact.equals(contactNo)) {
+			if (dto.getContactNo().equals(contactNo)) {
 				System.out.println("checking for " + contactNo);
 				return "ContactNo already exist.";
 			}
@@ -143,12 +142,12 @@ public class VendorServiceImpl implements VendorService {
 
 	@Override
 	public String findByAlternativeNo(Long alternativeNo) {
-		List<Long> byAlternativeNo = this.repo.findAllByAlternativeNo(alternativeNo);
+		List<VendorEntity> byAlternativeNo = this.repo.findAll();
 		System.err.println(byAlternativeNo);
-		for (Long altContact : byAlternativeNo) {
-			System.out.println(altContact + " checking for " + alternativeNo);
+		for (VendorEntity dto : byAlternativeNo) {
+			System.out.println(dto + " checking for " + alternativeNo);
 
-			if (altContact.equals(alternativeNo)) {
+			if (dto.getAlternativeNo().equals(alternativeNo)) {
 				System.out.println("checking for " + alternativeNo);
 				return "AlternativeNo already exist.";
 			}
@@ -160,12 +159,12 @@ public class VendorServiceImpl implements VendorService {
 
 	@Override
 	public String findByEmail(String email) {
-		List<String> byEmail = this.repo.findAllByEmail(email);
+		List<VendorEntity> byEmail = this.repo.findAll();
 		System.err.println(byEmail);
-		for (String mail : byEmail) {
-			System.out.println(mail + " checking for " + email);
+		for (VendorEntity dto : byEmail) {
+			System.out.println(dto + " checking for " + email);
 
-			if (mail.equalsIgnoreCase(email)) {
+			if (dto.getEmail().equalsIgnoreCase(email)) {
 				System.out.println("checking for " + email);
 				return "Email already exist.";
 			}
@@ -177,12 +176,12 @@ public class VendorServiceImpl implements VendorService {
 
 	@Override
 	public String findByWebsite(String website) {
-		List<String> byWebsite = this.repo.findAllByWebsite(website);
+		List<VendorEntity> byWebsite = this.repo.findAll();
 		System.err.println(byWebsite);
-		for (String web : byWebsite) {
-			System.out.println(web + " checking for " + website);
+		for (VendorEntity dto : byWebsite) {
+			System.out.println(dto + " checking for " + website);
 
-			if (web.equalsIgnoreCase(website)) {
+			if (dto.getWebsite().equalsIgnoreCase(website)) {
 				System.out.println("checking for " + website);
 				return "Website already exist.";
 			}
@@ -191,4 +190,22 @@ public class VendorServiceImpl implements VendorService {
 		return null;
 
 	}
+	@Override
+	public String isExist(String email, String otp) {
+		VendorEntity ref = repo.isExistByEmailOtp(email,otp);
+		if (ref != null) {
+			if (ref.getEmail().equals(email)) {
+				return "Email already exist";
+
+			} else if (ref.getOtp().equals(otp)) {
+				return "Otp already exist";
+
+			}
+			System.out.println("Deatils not found....Save the details");
+
+		}
+		return null;
+
+	}
+
 }

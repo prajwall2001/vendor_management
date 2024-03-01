@@ -13,7 +13,7 @@
     body {
         font-family: Arial, sans-serif;
         color: #fff; 
-        background-image:url('./github_banner.png');
+        background-image:url('https://images.freecreatives.com/wp-content/uploads/2016/04/Beautiful-Plain-Website-Background.jpg');
         background-color:black;
         background-size: cover;
         background-repeat: no-repeat;  
@@ -118,7 +118,7 @@
   <h1 style='color:Green'>${msg}</h1>
   <h1 style='color:red'>${uniqueError}</h1>
 <form action="vendorM" class="container" method="post">
-<h1 style='text-align:center'>Register here</h1>
+<h1 style='text-align:center;color:#07ee39;'>Register here</h1>
     
     <div class="design">
         <label for="name">Name</label><br>
@@ -174,7 +174,7 @@
    
     <div class="design">
         <label for="website">Website</label><br>
-        <input type="url" name="website" id="website" placeholder="Enter website" value="${entity.website}" onchange="uniqueWebsite()">
+        <input type="text" name="website" id="website" placeholder="Enter website" value="${entity.website}" onchange="uniqueWebsite()">
                         <span style='color:red;' id="websiteExistMsg"></span>       
     </div><br>
     <div class="design">

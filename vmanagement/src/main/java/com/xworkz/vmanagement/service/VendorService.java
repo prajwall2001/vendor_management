@@ -18,6 +18,8 @@ public interface VendorService {
 	String findByEmail(String email);
 	
 	String findByWebsite(String website);
+	
+	String isExist(String email,String otp);
 
 
 }

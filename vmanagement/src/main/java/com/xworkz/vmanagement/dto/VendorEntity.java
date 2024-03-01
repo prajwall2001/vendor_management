@@ -1,6 +1,7 @@
 package com.xworkz.vmanagement.dto;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,17 +19,13 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "vendor_registration")
-@NamedQuery(name = "isExistNameEmailWebsite", query = "Select ent from VendorEntity as ent where ent.gstNo=:gn  or ent.contactNo=:cn or ent.email=:vm or ent.website=:web")
-@NamedQuery(name = "findAllByGstNo", query = "Select gstNo from VendorEntity et")
-@NamedQuery(name = "findAllByContactNo", query = "Select contactNo from VendorEntity et")
-@NamedQuery(name = "findAllByAlternativeNo", query = "Select alternativeNo from VendorEntity et")
-@NamedQuery(name = "findAllByEmail", query = "Select email from VendorEntity et")
-@NamedQuery(name = "findAllByWebsite", query = "Select website from VendorEntity et")
+@NamedQuery(name = "isExistNameContactNoEmailWebsite", query = "Select ent from VendorEntity as ent where ent.gstNo=:gn   or ent.contactNo=:cn or ent.email=:vm or ent.website=:web")
+@NamedQuery(name = "isExistByEmailOtp", query = "Select ent from VendorEntity as ent where ent.email=:em or ent.otp=:ot")
 
-
+@NamedQuery(name = "findAll", query = "Select et from VendorEntity et")
+@NamedQuery(name = "findAllOtp", query = "Select otp from VendorEntity et")
 
 public class VendorEntity {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "v_id")
@@ -66,7 +63,7 @@ public class VendorEntity {
 	@Column(name = "email")
 	private String email;
 	@NotNull
-	@Size(min = 300, message = "Website link must be min 300 characters")
+	@Size(min = 3, message = "Website link must be min 300 characters")
 	@Column(name = "website")
 	private String website;
 	@Column(name = "created_by")
@@ -77,5 +74,8 @@ public class VendorEntity {
 	private String updatedBy;
 	@Column(name = "updated_date")
 	private Date updatedDate;
-
+	@Column(name = "v_otp")
+	private String otp;
+	@Column(name = "v_otpGenrated_time")
+	private LocalDateTime otpGenratedTime;
 }

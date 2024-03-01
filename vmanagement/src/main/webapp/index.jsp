@@ -12,7 +12,7 @@
         font-family: Arial, sans-serif;
         background-color: black; 
         color:white;
-        background-image: url('vm_bg.jpg');
+        background-image:url('https://images.freecreatives.com/wp-content/uploads/2016/04/Beautiful-Plain-Website-Background.jpg');
         background-size: cover;
         background-repeat: no-repeat;  
     }
@@ -48,17 +48,19 @@
         <li class="nav-item">
           <a class="nav-link" href="registration.jsp">Registration</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.jsp">Login</a>
+        </li>
       </ul>  
     </div>
   </div>
 </nav>
 </head>
 <body>
-<h1 style="color:rgb(135, 0, 0); text-align: center; ">Vendor Management</h1>
+<h1 style="color:#07ee39; text-align: center; ">Vendor Management</h1>
 <h4>A vendor management project using Java and Spring is a web application designed to streamline the process of managing vendor relationships within an organization. It includes features such as storing vendor details, tracking contracts, evaluating performance, facilitating communication, and generating reports.</h4>
 <form action="info" method="post">
 </form>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
  <footer>

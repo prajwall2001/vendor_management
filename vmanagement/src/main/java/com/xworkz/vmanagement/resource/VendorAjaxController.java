@@ -27,7 +27,7 @@ public class VendorAjaxController {
 	}
 	
 	@GetMapping(value = "/contactNoAjax/{contactNo}")
-	public String ontactNoAjax(@PathVariable Long contactNo) {
+	public String contactNoAjax(@PathVariable Long contactNo) {
 		String byContactNo = this.service.findByContactNo(contactNo);
 		System.out.println("Running ajax controller for Contact number : " + contactNo);
 		return byContactNo;
