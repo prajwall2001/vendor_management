@@ -15,4 +15,5 @@ public interface VendorRepository {
 
 	public void updatedOtpByEmail(String email, String otp);
 
+
 }

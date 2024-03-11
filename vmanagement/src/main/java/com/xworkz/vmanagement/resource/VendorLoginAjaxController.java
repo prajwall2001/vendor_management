@@ -23,6 +23,7 @@ public class VendorLoginAjaxController {
 
 	@GetMapping(value = "/loginMailAjax/{email}")
 	public String loginEmailAjax(@PathVariable String email) {
+		System.out.println("Checking for mail :"+email);
 		System.out.println("Invoking the ajaxEmailLogin()..");
 		return this.serviceLogin.emailLoginAjax(email);
 

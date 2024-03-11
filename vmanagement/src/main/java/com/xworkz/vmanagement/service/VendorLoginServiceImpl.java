@@ -28,7 +28,7 @@ public class VendorLoginServiceImpl implements VendorLoginService {
 		System.out.println("invoking emailLoginAjax in LoginServiceImpl");
 		List<VendorEntity> entity = this.repository.findAll();
 		for (VendorEntity entt : entity) {
-			if (entt.equals(email)) {
+			if (entt.getEmail().equals(email)) {
 				System.out.println("Email is Verified");
 				return "";
 			}
@@ -50,7 +50,7 @@ public class VendorLoginServiceImpl implements VendorLoginService {
 		boolean emailOtp = this.emailSender.emailSender(to, from, subject, text);
 		this.repository.updatedOtpByEmail(email, otp);
 		if (emailOtp) {
-			return "*OTP Sent Successfully";
+			return "OTP Sent Successfully";
 		}
 
 		return null;
@@ -61,9 +61,9 @@ public class VendorLoginServiceImpl implements VendorLoginService {
 		System.out.println("invoking the loginOtpAjax in LoginImpl");
 		List<VendorEntity> entity = this.repository.findAll();
 		for (VendorEntity ent : entity) {
-			if (ent.equals(otp)) {
+			if (ent.getOtp().equals(otp)) {
 				System.out.println("checking for " + otp);
-				return "OTP matched.";
+				return "OTP matched";
 			}
 			else {
 				return "OTP not matched";

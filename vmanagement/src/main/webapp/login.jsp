@@ -145,7 +145,7 @@ footer {
 				<button type="button" class="btn btn-primary" id="otpButton"
 					onclick="genarateOtp()" disabled="disabled">Generate OTP</button>
 
-				<button type="submit" class="btn btn-secondary" id="loginBtn"
+				<button type="submit" class="btn btn-success" id="loginBtn"
 					disabled="disabled">Log in</button>
 	</div>
 	</form>
@@ -167,7 +167,7 @@ footer {
 
 			const xhttp = new XMLHttpRequest();
 			xhttp.open("GET",
-					"http://localhost:8080/VendorManagement/loginMailAjax/"
+					"http://localhost:8080/vmanagement/loginMailAjax/"
 							+ email);
 			xhttp.send();
 
@@ -187,7 +187,7 @@ footer {
 		const email = document.getElementById("email").value;
 
 		const xhttp = new XMLHttpRequest();
-		xhttp.open("GET","http://localhost:8080/VendorManagement/loginOtpEmailMsg/" + email);
+		xhttp.open("GET","http://localhost:8080/vmanagement/loginOtpEmailMsg/" + email);
 		xhttp.send();
 
 		xhttp.onload = function() {
@@ -204,17 +204,15 @@ footer {
 		if (otp == null || otp == "") {
 			console.log("Otp cannot be empty");
 			document.getElementById("otpErrMsg").innerHTML = "OTP cannot Be Empty";
-			loginButton.setAttribute("disabled", "");
 		} else if (otp.length > 6 || otp.length < 6) {
 			console.log("Otp should be format");
 			document.getElementById("otpErrMsg").innerHTML = "OTP should be in format";
-			loginButton.setAttribute("disabled", "");
 		} else if (otp != "") {
 
 			const xhttp = new XMLHttpRequest();
 
 			xhttp.open("GET",
-					"http://localhost:8080/VendorManagement/loginOtpAjax/"
+					"http://localhost:8080/vmanagement/loginOtpAjax/"
 							+ otp);
 			xhttp.send();
 
@@ -223,7 +221,7 @@ footer {
 				if (response == "OTP matched") {
 					loginButton.removeAttribute("disabled");
 				} else {
-					loginButton.setAttribute("disabled", "");
+					loginButton.setAttribute("disabled", "false");
 				}
 
 			}

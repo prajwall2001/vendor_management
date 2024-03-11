@@ -129,8 +129,8 @@ public class VendorRepositoryImpl implements VendorRepository {
 		VendorEntity entity = null;
 		try {
 			Query query = em.createNamedQuery("isExistByEmailOtp");
-			query.setParameter("em", email);
-			query.setParameter("ot", otp);
+			query.setParameter("email", email);
+			query.setParameter("otp", otp);
 			entity = (VendorEntity) query.getSingleResult();
 
 		} catch (PersistenceException pe) {

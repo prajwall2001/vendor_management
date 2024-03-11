@@ -36,6 +36,6 @@ public class LoginController {
 		} else { 
 			this.repository.updatedOtpByEmail(email, OtpGenerator.genarateOTP());
 		}
-		return "signin";
+		return "login";
 	}
 }

@@ -20,8 +20,8 @@ import lombok.Data;
 @Entity
 @Table(name = "vendor_registration")
 @NamedQuery(name = "isExistNameContactNoEmailWebsite", query = "Select ent from VendorEntity as ent where ent.gstNo=:gn   or ent.contactNo=:cn or ent.email=:vm or ent.website=:web")
-@NamedQuery(name = "isExistByEmailOtp", query = "Select ent from VendorEntity as ent where ent.email=:em or ent.otp=:ot")
-
+@NamedQuery(name = "isExistByEmailOtp", query = "Select ent from VendorEntity as ent where ent.email=:email or ent.otp=:otp")
+@NamedQuery(name="updatedOtpByEmail",query = "select ent from VendorEntity ent where ent.email=:email")
 @NamedQuery(name = "findAll", query = "Select et from VendorEntity et")
 @NamedQuery(name = "findAllOtp", query = "Select otp from VendorEntity et")
 
