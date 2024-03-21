@@ -12,6 +12,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.xworkz.vmanagement.constants.VmanConstants;
 import com.xworkz.vmanagement.dto.VendorEntity;
 import com.xworkz.vmanagement.service.VendorService;
 
@@ -48,10 +49,12 @@ public class RegistrationController {
 				model.addAttribute("msg", "Vendor information saved successfully");
 
 			}
+			entity.setStatus(VmanConstants.PENDING.toString());
 			this.service.validateAndSave(entity);
 			this.service.sendEmail(entity.getEmail());
 			return "registration";
 		}
-
 	}
+	
+	
 }

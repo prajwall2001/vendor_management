@@ -1,6 +1,7 @@
 package com.xworkz.vmanagement.dto;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -14,6 +15,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.loader.entity.CascadeEntityJoinWalker;
+
 import lombok.Data;
 
 @Data
@@ -23,12 +26,12 @@ import lombok.Data;
 @NamedQuery(name = "isExistByEmailOtp", query = "Select ent from VendorEntity as ent where ent.email=:email or ent.otp=:otp")
 @NamedQuery(name="updatedOtpByEmail",query = "select ent from VendorEntity ent where ent.email=:email")
 @NamedQuery(name = "findAll", query = "Select et from VendorEntity et")
-@NamedQuery(name = "findAllOtp", query = "Select otp from VendorEntity et")
+@NamedQuery(name = "findAllOtp", query = "Select otp from VendorEntity et") 
 
 public class VendorEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "v_id")
+	@Column(name = "v_id")   
 	private int id;
 	@NotNull
 	@Size(min = 3, max = 30, message = "Name must be between 3-30 characters")
@@ -69,13 +72,15 @@ public class VendorEntity {
 	@Column(name = "created_by")
 	private String createdBy;
 	@Column(name = "created_date")
-	private Date createdDate;
+	private LocalDate createdDate;
 	@Column(name = "updated_by")
 	private String updatedBy;
 	@Column(name = "updated_date")
-	private Date updatedDate;
+	private LocalDate updatedDate;
 	@Column(name = "v_otp")
 	private String otp;
 	@Column(name = "v_otpGenrated_time")
 	private LocalDateTime otpGenratedTime;
+	@Column(name="status")
+	private String status;
 }

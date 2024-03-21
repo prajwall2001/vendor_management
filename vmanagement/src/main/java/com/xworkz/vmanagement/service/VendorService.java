@@ -1,5 +1,7 @@
 package com.xworkz.vmanagement.service;
 
+import java.util.List;
+
 import com.xworkz.vmanagement.dto.VendorEntity;
 
 public interface VendorService {
@@ -15,11 +17,14 @@ public interface VendorService {
 
 	String findByAlternativeNo(Long alternativeNo);
 	
-	String findByEmail(String email);
+	String findEmail(String email);
 	
 	String findByWebsite(String website);
 	
 	String isExist(String email,String otp);
+	
+	VendorEntity findByEmail (String email);
 
+	//List<VendorEntity> readAll();
 
 }

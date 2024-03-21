@@ -50,10 +50,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.jsp">Home</a>
                     </li>
-                    
-                      <li class="nav-item">
-          <a class="nav-link" href="admin.jsp">Admin</a>
-        </li>
+               
        
                 </ul>  
                 <ul class="navbar-nav">
@@ -73,7 +70,7 @@
 </head>
 <body>
 <h3 style="color:#07ee39; text-align: center; ">Vendor Management</h3>
-<form action="lSuccess" method="post"> </form>
+<form action="aSuccess" method="post"> </form>
 <h3 style='color:green;'>Login Successful</h3>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

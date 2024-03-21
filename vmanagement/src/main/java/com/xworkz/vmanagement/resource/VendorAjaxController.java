@@ -41,7 +41,7 @@ public class VendorAjaxController {
 	}
 	@GetMapping(value = "/emailAjax/{email:.+}")
 	public String emailAjax(@PathVariable String email) {
-		String byEmail = this.service.findByEmail(email);
+		String byEmail = this.service.findEmail(email);
 		System.out.println("Running ajax controller for email: " + email);
 		return byEmail;
 	}

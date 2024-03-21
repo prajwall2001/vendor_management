@@ -16,4 +16,6 @@ public class ClickController {
 		System.out.println("Invoking clicking()....");
 		return "index";
 	}
+	
+	
 }

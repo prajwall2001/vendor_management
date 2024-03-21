@@ -35,7 +35,6 @@ public class EmailSender {
 		prop.put("mail.smtp.auth", true);
 		prop.put("mail.transport.protocol", "smtp");
 
-		// Creating seission object
 
 		Session session = Session.getInstance(prop, new Authenticator() {
 			@Override
@@ -44,8 +43,6 @@ public class EmailSender {
 			}
 			
 		});
-
-		// Creating the message object
 
 		MimeMessage message = new MimeMessage(session);
 		try {

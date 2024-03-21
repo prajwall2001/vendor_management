@@ -17,7 +17,6 @@ import com.xworkz.vmanagement.dto.VendorEntity;
 
 @Repository
 public class VendorRepositoryImpl implements VendorRepository {
-
 	@Autowired
 	private EntityManagerFactory emf;
 
@@ -144,5 +143,25 @@ public class VendorRepositoryImpl implements VendorRepository {
 		return entity;
 	}
 
+@Override
+public VendorEntity findByEmail(String email) {
+	EntityManager em = emf.createEntityManager();
+	System.out.println("Created EM");
+	VendorEntity list = new VendorEntity();
+	try {
+		Query query = em.createNamedQuery("updatedOtpByEmail");
+		query.setParameter("email", email);
 
+		list = (VendorEntity) query.getSingleResult();
+
+	} catch (PersistenceException pe) {
+		System.out.println("PersistenceException in save:" + pe.getMessage());
+
+	} finally {
+		System.out.println("Closing resources");
+		em.close();
+		System.out.println("Em closed");
+	}
+	return list;
+}
 }

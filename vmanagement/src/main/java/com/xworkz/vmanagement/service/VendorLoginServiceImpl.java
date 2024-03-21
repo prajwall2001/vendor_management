@@ -1,5 +1,6 @@
 package com.xworkz.vmanagement.service;
 
+ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,20 +60,25 @@ public class VendorLoginServiceImpl implements VendorLoginService {
 	@Override
 	public String loginOtpAjax(String otp) {
 		System.out.println("invoking the loginOtpAjax in LoginImpl");
+
 		List<VendorEntity> entity = this.repository.findAll();
 		for (VendorEntity ent : entity) {
+
 			if (ent.getOtp().equals(otp)) {
+			
+				  if (ent.getOtpGenratedTime().plusMinutes(1l).compareTo(LocalDateTime.now()) == 0) { 
+					  return "otp expired";
+				 
+				  }
+				 
 				System.out.println("checking for " + otp);
-				return "OTP matched";
+				return "";
 			}
-			else {
-				return "OTP not matched";
-			}
+
 		}
 
-		return null;
+		return "OTP not matched";
 
 	}
 
-	
 }
