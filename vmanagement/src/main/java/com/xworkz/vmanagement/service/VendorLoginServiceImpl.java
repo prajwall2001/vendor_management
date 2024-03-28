@@ -50,6 +50,7 @@ public class VendorLoginServiceImpl implements VendorLoginService {
 
 		boolean emailOtp = this.emailSender.emailSender(to, from, subject, text);
 		this.repository.updatedOtpByEmail(email, otp);
+		 
 		if (emailOtp) {
 			return "OTP Sent Successfully";
 		}

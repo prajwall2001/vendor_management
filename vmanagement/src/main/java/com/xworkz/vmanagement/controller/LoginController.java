@@ -39,14 +39,7 @@ public class LoginController {
 //		model.addAttribute("ent", entity);
 		String userEmail = email;
 		session.setAttribute("loggedInEmail", email);
-//		String userExist = this.service.isExist(email, otp);
-//		if (userExist != null) {
-//			model.addAttribute("msg", userExist);
-//			this.repository.updatedOtpByEmail(email, OtpGenerator.genarateOTP());
-//			return "login";
-//		} else { 
-//			this.repository.updatedOtpByEmail(email, OtpGenerator.genarateOTP());
-//		}
+
 		return "loginSuccess";
 	}
 
@@ -59,18 +52,5 @@ public class LoginController {
 		model.addAttribute("entity", entity);
 		return "view";
 	}
-
-	// admin login
-	/*
-	 * @RequestMapping("/adminPortal") public String
-	 * loginUsingEmailAndPssword(String email, String password, Model model,
-	 * HttpSession session) {
-	 * System.out.println("Creating the loginUsingEmailAndPassword()...");
-	 * adminService.emailAdminLoginAjax(email);
-	 * adminService.passwordAdminLoginAjax(password);
-	 * 
-	 * 
-	 * return "adminSuccess"; }
-	 */
 
 }

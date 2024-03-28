@@ -6,10 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xworkz.vmanagement.dto.AdminEntity;
+import com.xworkz.vmanagement.dto.VendorEntity;
 import com.xworkz.vmanagement.repository.AdminRepository;
+import com.xworkz.vmanagement.repository.VendorRepository;
 
 @Service
 public class AdminLoginServiceImpl implements AdminLoginService {
+
+	@Autowired
+	private VendorRepository vendorRepository;
 
 	@Autowired
 	private AdminRepository repo;
@@ -28,11 +33,27 @@ public class AdminLoginServiceImpl implements AdminLoginService {
 	 * System.out.println("Password is Verified"); return ""; } } return
 	 * "Incorrect Password"; }
 	 */
-	
-	
+
 	@Override
 	public boolean findEmailAndPassword(String email, String password) {
-		boolean en=repo.findEmailAndPassword(email, password);
+		boolean en = repo.findEmailAndPassword(email, password);
 		return en;
+	}
+
+	@Override
+	public List<VendorEntity> getAllUsers() {
+
+		return vendorRepository.findAll();
+	}
+
+	@Override
+	public List<VendorEntity> findByName(String name) {
+		return vendorRepository.findByName(name);
+	}
+
+	@Override
+	public VendorEntity updateStatusById(int id) {
+		System.out.println("Invoking updateVendorStatusById");
+		return vendorRepository.updateStatusById(id);
 	}
 }

@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+
 @Configuration
 @ComponentScan("com.xworkz.vmanagement")
 @EnableWebMvc
@@ -28,5 +29,6 @@ public class BeanConfiguration {
 		return new LocalContainerEntityManagerFactoryBean();
 
 	}
+	
 
 }

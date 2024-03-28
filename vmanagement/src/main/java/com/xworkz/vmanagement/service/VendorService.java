@@ -24,7 +24,8 @@ public interface VendorService {
 	String isExist(String email,String otp);
 	
 	VendorEntity findByEmail (String email);
+  
+	void updateVendorStatusById(int id);
 
-	//List<VendorEntity> readAll();
 
 }

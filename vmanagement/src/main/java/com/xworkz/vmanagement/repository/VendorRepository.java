@@ -6,6 +6,7 @@ import com.xworkz.vmanagement.dto.VendorEntity;
 
 public interface VendorRepository {
 	public boolean save(VendorEntity entity);
+	
 
 	public VendorEntity isExist(String gstNo, Long contactNo, String email, String website);
 	
@@ -16,6 +17,10 @@ public interface VendorRepository {
 	public void updatedOtpByEmail(String email, String otp);
 	
 	VendorEntity findByEmail(String email);
+	
+	List<VendorEntity> findByName(String name);
 
+	VendorEntity updateStatusById(int id);
+	
 
 }

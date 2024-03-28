@@ -27,6 +27,8 @@ import lombok.Data;
 @NamedQuery(name="updatedOtpByEmail",query = "select ent from VendorEntity ent where ent.email=:email")
 @NamedQuery(name = "findAll", query = "Select et from VendorEntity et")
 @NamedQuery(name = "findAllOtp", query = "Select otp from VendorEntity et") 
+@NamedQuery(name = "findByName", query = "Select et from VendorEntity et where et.name=:name")
+@NamedQuery(name="updateStatusById",query = "UPDATE VendorEntity et SET et.status='APPROVED' WHERE et.id = :id")
 
 public class VendorEntity {
 	@Id

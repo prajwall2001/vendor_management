@@ -80,7 +80,6 @@ public class VendorRepositoryImpl implements VendorRepository {
 		List<VendorEntity> list = new ArrayList<VendorEntity>();
 		try {
 			Query query = em.createNamedQuery("findAll");
-
 			list = query.getResultList();
 
 		} catch (PersistenceException pe) {
@@ -143,25 +142,70 @@ public class VendorRepositoryImpl implements VendorRepository {
 		return entity;
 	}
 
-@Override
-public VendorEntity findByEmail(String email) {
-	EntityManager em = emf.createEntityManager();
-	System.out.println("Created EM");
-	VendorEntity list = new VendorEntity();
-	try {
-		Query query = em.createNamedQuery("updatedOtpByEmail");
-		query.setParameter("email", email);
+	@Override
+	public VendorEntity findByEmail(String email) {
+		EntityManager em = emf.createEntityManager();
+		System.out.println("Created EM");
+		VendorEntity list = new VendorEntity();
+		try {
+			Query query = em.createNamedQuery("updatedOtpByEmail");
+			query.setParameter("email", email);
 
-		list = (VendorEntity) query.getSingleResult();
+			list = (VendorEntity) query.getSingleResult();
 
-	} catch (PersistenceException pe) {
-		System.out.println("PersistenceException in save:" + pe.getMessage());
+		} catch (PersistenceException pe) {
+			System.out.println("PersistenceException in save:" + pe.getMessage());
 
-	} finally {
-		System.out.println("Closing resources");
-		em.close();
-		System.out.println("Em closed");
+		} finally {
+			System.out.println("Closing resources");
+			em.close();
+			System.out.println("Em closed");
+		}
+		return list;
 	}
-	return list;
-}
+
+	@Override
+	public List<VendorEntity> findByName(String name) {
+		EntityManager em = emf.createEntityManager();
+		System.out.println("Created EM");
+		List<VendorEntity> list = null;
+		try {
+			Query query = em.createNamedQuery("findByName");
+			query.setParameter("name", name);
+
+			list = query.getResultList();
+
+		} catch (PersistenceException pe) {
+			System.out.println("PersistenceException in save:" + pe.getMessage());
+
+		} finally {
+			System.out.println("Closing resources");
+			em.close();
+			System.out.println("Em closed");
+		}
+		return list;
+	}
+
+	@Override
+	public VendorEntity updateStatusById(int id) {
+		System.out.println("Invoking updateStatus");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		try {
+			et.begin();            
+			Query query = em.createNamedQuery("updateStatusById");
+			query.setParameter("id", id);
+			int rowsUpdated = query.executeUpdate();
+			et.commit();
+			System.out.println("Transaction commit. Rows updated: " + rowsUpdated);
+
+		} catch (PersistenceException pe) {
+			System.out.println("Persistence Exception: " + pe.getMessage());
+			et.rollback();
+		} finally {
+			System.out.println("Closing resources");
+			em.close();
+		}
+		return null;
+	}
 }

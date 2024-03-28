@@ -1,15 +1,12 @@
 package com.xworkz.vmanagement.service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.xworkz.vmanagement.constants.VmanConstants;
 import com.xworkz.vmanagement.dto.VendorEntity;
 import com.xworkz.vmanagement.repository.VendorRepository;
 
@@ -228,34 +225,11 @@ public class VendorServiceImpl implements VendorService {
 
 	}
 
-	/*
-	 * @Override public List<VendorEntity> readAll() { List<VendorEntity> ent =
-	 * repo.findAll(); List<VendorEntity> readAll = new ArrayList<VendorEntity>();
-	 * 
-	 * for (VendorEntity vendorEntity : ent) { if (vendorEntity != null) {
-	 * 
-	 * if
-	 * (vendorEntity.getStatus().equalsIgnoreCase(VmanConstants.PENDING.toString()))
-	 * { VendorEntity entity = new VendorEntity();
-	 * entity.setName(vendorEntity.getName());
-	 * entity.setLocation(vendorEntity.getLocation());
-	 * entity.setGstNo(vendorEntity.getGstNo());
-	 * entity.setCompanyStartDate(vendorEntity.getCompanyStartDate());
-	 * entity.setOwnerName(vendorEntity.getOwnerName());
-	 * entity.setServiceType(vendorEntity.getServiceType());
-	 * entity.setContactNo(vendorEntity.getContactNo());
-	 * entity.setAlternativeNo(vendorEntity.getAlternativeNo());
-	 * entity.setEmail(vendorEntity.getEmail());
-	 * entity.setWebsite(vendorEntity.getWebsite());
-	 * entity.setCreatedBy(vendorEntity.getCreatedBy());
-	 * entity.setCreatedDate(vendorEntity.getCreatedDate());
-	 * entity.setUpdatedBy(vendorEntity.getUpdatedBy());
-	 * entity.setUpdatedDate(vendorEntity.getUpdatedDate());
-	 * entity.setOtp(vendorEntity.getOtp());
-	 * entity.setOtpGenratedTime(vendorEntity.getOtpGenratedTime());
-	 * readAll.add(entity); } } }
-	 * 
-	 * return readAll; }
-	 */
+	@Override
+	public void updateVendorStatusById(int id) {
+		System.out.println("Invoking updateVendorStatusById in VendorServiceImpl..");
+        repo.updateStatusById(id);
+
+	}
 
 }

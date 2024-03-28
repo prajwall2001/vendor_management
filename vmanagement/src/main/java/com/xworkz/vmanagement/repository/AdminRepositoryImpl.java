@@ -17,31 +17,7 @@ import com.xworkz.vmanagement.dto.AdminEntity;
 @Repository
 public class AdminRepositoryImpl implements AdminRepository {
 	@Autowired
-	private EntityManagerFactory emf;
-
-//	@Override
-//	public List<AdminEntity> findAllEntity() {
-//		EntityManager em = emf.createEntityManager();
-//		System.out.println("Created EM");
-//		EntityTransaction et = em.getTransaction();
-//
-//		List<AdminEntity> list = new ArrayList<AdminEntity>();
-//		try {
-//			et.begin();
-//			Query query = em.createNamedQuery("findAll");
-//
-//			list = query.getResultList();
-//			et.commit();
-//		} catch (PersistenceException pe) {
-//			System.out.println("PersistenceException in save:" + pe.getMessage());
-//			et.rollback();
-//		} finally {
-//			System.out.println("Closing resources");
-//			em.close();
-//			System.out.println("Em closed");
-//		}
-//		return list;
-//	}
+	private EntityManagerFactory emf; 
 
 	@Override
 	public boolean findEmailAndPassword(String email, String password) {
