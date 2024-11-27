@@ -4,20 +4,26 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Properties;
 
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.xworkz.vmanagement.dto.VendorEntity;
+import com.xworkz.vmanagement.dto.VendorDto;
+import com.xworkz.vmanagement.entity.VendorEntity;
 import com.xworkz.vmanagement.repository.VendorRepository;
 
-import jakarta.mail.Authenticator;
-import jakarta.mail.Message;
-import jakarta.mail.MessagingException;
-import jakarta.mail.PasswordAuthentication;
-import jakarta.mail.Session;
-import jakarta.mail.Transport;
-import jakarta.mail.internet.InternetAddress;
-import jakarta.mail.internet.MimeMessage;
+
+
+
 
 @Service
 public class VendorServiceImpl implements VendorService {
@@ -30,13 +36,14 @@ public class VendorServiceImpl implements VendorService {
 	}
 
 	@Override
-	public boolean validateAndSave(VendorEntity entity) {
+	public boolean validateAndSave(VendorDto vendorDto) {
 		System.out.println("Invoking validateAndSave....");
-		System.out.println("Entity passed:" + entity);
-		entity.setCreatedDate(LocalDate.now());
-		entity.setCreatedBy(entity.getName());
-		entity.setStatus(entity.getStatus());
-
+		System.out.println("Entity passed:" + vendorDto);
+		vendorDto.setCreatedDate(LocalDate.now());
+		vendorDto.setCreatedBy(vendorDto.getName());
+		vendorDto.setStatus(vendorDto.getStatus());
+		VendorEntity entity=new VendorEntity();
+		BeanUtils.copyProperties(vendorDto, entity);
 		this.repo.save(entity);
 		return true;
 	}
@@ -222,7 +229,6 @@ public class VendorServiceImpl implements VendorService {
 			return ref;
 		}
 		return null;
-
 	}
 
 	@Override

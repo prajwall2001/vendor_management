@@ -2,10 +2,12 @@ package com.xworkz.vmanagement.service;
 
 import java.util.List;
 
-import com.xworkz.vmanagement.dto.VendorEntity;
+import com.xworkz.vmanagement.dto.VendorDto;
+import com.xworkz.vmanagement.entity.VendorEntity;
 
 public interface VendorService {
-	public boolean validateAndSave(VendorEntity entity);
+	
+	public boolean validateAndSave(VendorDto dto);
 
 	boolean sendEmail(String email);
 

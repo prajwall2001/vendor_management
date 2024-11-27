@@ -2,7 +2,7 @@ package com.xworkz.vmanagement.repository;
 
 import java.util.List;
 
-import com.xworkz.vmanagement.dto.VendorEntity;
+import com.xworkz.vmanagement.entity.VendorEntity;
 
 public interface VendorRepository {
 	public boolean save(VendorEntity entity);

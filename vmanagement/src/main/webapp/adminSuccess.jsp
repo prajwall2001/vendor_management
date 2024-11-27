@@ -58,7 +58,7 @@
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-        <img src="https://static.vecteezy.com/system/resources/previews/004/526/847/original/women-protection-rgb-color-icon-protect-girls-against-violence-female-empowerment-women-safety-gender-equality-provide-peace-and-security-isolated-illustration-simple-filled-line-drawing-vector.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
+        <img src="https://cdn.dribbble.com/users/9125986/screenshots/16427226/vimiyans_only_logo-01.jpg" width="40" height="40" class="d-inline-block align-top" alt="Logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -75,7 +75,12 @@
                         <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <%= session.getAttribute("loggedInEmail") %>
                         </a>
-                      
+                     <li>
+                        <form action="index.jsp" method="post">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                        </form>
+                     </li>
+       
                     </li>
                 </ul>
             </div>
@@ -96,13 +101,16 @@
         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
             </div>
         </div>
+            </div>
+            </div>
         
  </form>
  <form action="viewAll" method="post">
         <div class="col text-end">
             <button type="submit" class="btn btn-primary">View All</button>
         </div>
-    </div>
+    </form>
+   
 
 <div class="container">
        
@@ -122,6 +130,7 @@
             <th scope="col">Website</th>
             <th scope="col">Status</th>
             <th scope="col">Update</th>
+           
             
         </tr>
             </thead>
@@ -151,7 +160,6 @@
             </tbody>
         </table>
     </div>
-    </form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
  <footer>

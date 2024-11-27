@@ -12,12 +12,12 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.xworkz.vmanagement.dto.AdminEntity;
+import com.xworkz.vmanagement.entity.AdminEntity;
 
 @Repository
 public class AdminRepositoryImpl implements AdminRepository {
 	@Autowired
-	private EntityManagerFactory emf; 
+	private EntityManagerFactory emf;
 
 	@Override
 	public boolean findEmailAndPassword(String email, String password) {
@@ -32,7 +32,7 @@ public class AdminRepositoryImpl implements AdminRepository {
 			query.setParameter("email", email);
 			query.setParameter("password", password);
 
-			list =  query.getResultList();
+			list = query.getResultList();
 			et.commit();
 			return true;
 		} catch (PersistenceException pe) {
@@ -48,4 +48,31 @@ public class AdminRepositoryImpl implements AdminRepository {
 		return false;
 	}
 
+	@Override
+	public AdminEntity findByEmail(String email) {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		System.out.println("Created EM");
+		AdminEntity ent = null;
+
+		try {
+			et.begin();
+			Query query = em.createNamedQuery("findByEmail");
+			query.setParameter("email", email);
+
+			ent = (AdminEntity) query.getSingleResult();
+			et.commit();
+			return ent;
+		} catch (PersistenceException pe) {
+			System.out.println("PersistenceException in save:" + pe.getMessage());
+			et.rollback();
+
+		} finally {
+			System.out.println("Closing resources");
+			em.close();
+			System.out.println("Em closed");
+		}
+
+		return null;
+	}
 }

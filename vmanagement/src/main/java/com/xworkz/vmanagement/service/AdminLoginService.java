@@ -2,7 +2,7 @@ package com.xworkz.vmanagement.service;
 
 import java.util.List;
 
-import com.xworkz.vmanagement.dto.VendorEntity;
+import com.xworkz.vmanagement.entity.VendorEntity;
 
 public interface AdminLoginService {
 	/*
@@ -18,4 +18,6 @@ public interface AdminLoginService {
 	List<VendorEntity> findByName(String name);
    
 	VendorEntity updateStatusById(int id);
+	
+	
 }

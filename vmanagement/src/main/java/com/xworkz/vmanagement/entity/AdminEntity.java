@@ -1,4 +1,4 @@
-package com.xworkz.vmanagement.dto;
+package com.xworkz.vmanagement.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,9 +15,11 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "admin_portal")
+@Table(name = "admin_table")
 @NamedQuery(name = "findAllEntity", query = "Select et from AdminEntity et")
 @NamedQuery(name = "findByEmailAndPassword", query = "Select et from AdminEntity et where et.email=:email and et.password=:password")
+@NamedQuery(name = "findByEmail", query = "Select et from AdminEntity et where et.email=:email")
+
 public class AdminEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

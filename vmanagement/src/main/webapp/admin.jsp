@@ -115,7 +115,7 @@ footer {
 <body>
  
     <div class="container">
-        <h3 style="text-align: center;color:#07ee39;">Admin Login Form</h3>
+        <h3 style="text-align: center;">Admin Login Form</h3>
         <form action="adminPortal" method="post">
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label> 

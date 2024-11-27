@@ -6,8 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.xworkz.vmanagement.dto.VendorEntity;
+import com.xworkz.vmanagement.entity.VendorEntity;
 import com.xworkz.vmanagement.repository.VendorRepository;
+
 import com.xworkz.vmanagement.util.EmailSender;
 import com.xworkz.vmanagement.util.OtpGenerator;
 
@@ -64,19 +65,15 @@ public class VendorLoginServiceImpl implements VendorLoginService {
 
 		List<VendorEntity> entity = this.repository.findAll();
 		for (VendorEntity ent : entity) {
-
-			if (ent.getOtp().equals(otp)) {
-			
-				  if (ent.getOtpGenratedTime().plusMinutes(1l).compareTo(LocalDateTime.now()) == 0) { 
-					  return "otp expired";
-				 
-				  }
+			if (ent.getOtp()!=null && ent.getOtp().equals(otp)) {			
 				 
 				System.out.println("checking for " + otp);
 				return "";
 			}
 
 		}
+		
+		
 
 		return "OTP not matched";
 

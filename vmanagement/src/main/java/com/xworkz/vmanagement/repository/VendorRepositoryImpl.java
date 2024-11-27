@@ -13,7 +13,7 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.xworkz.vmanagement.dto.VendorEntity;
+import com.xworkz.vmanagement.entity.VendorEntity;
 
 @Repository
 public class VendorRepositoryImpl implements VendorRepository {
@@ -146,12 +146,12 @@ public class VendorRepositoryImpl implements VendorRepository {
 	public VendorEntity findByEmail(String email) {
 		EntityManager em = emf.createEntityManager();
 		System.out.println("Created EM");
-		VendorEntity list = new VendorEntity();
+		VendorEntity entity = new VendorEntity();
 		try {
 			Query query = em.createNamedQuery("updatedOtpByEmail");
 			query.setParameter("email", email);
 
-			list = (VendorEntity) query.getSingleResult();
+			entity = (VendorEntity) query.getSingleResult();
 
 		} catch (PersistenceException pe) {
 			System.out.println("PersistenceException in save:" + pe.getMessage());
@@ -161,7 +161,7 @@ public class VendorRepositoryImpl implements VendorRepository {
 			em.close();
 			System.out.println("Em closed");
 		}
-		return list;
+		return entity;
 	}
 
 	@Override
